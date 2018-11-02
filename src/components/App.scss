@@ -1,0 +1,120 @@
+$LightGrey: #757575;
+$DarkGrey: #424242;
+$Orange: #FF6F00;
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+//----- Extends
+%clearfix:after {
+  display:block;
+  clear:both;
+  content:'';
+}
+
+.App {
+  height: 500px; // could change to 100vh for response display
+  width: 500px;
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  padding: 0px 16px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  background-color: $DarkGrey;
+
+  .nav-title {
+    float: left;
+    font-size: 18px;
+    color: white;
+    font-weight: $font-weight-regular;
+  }
+  .nav-badge {
+    float: right;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: white;
+    line-height: 1;
+    margin-top: 17.5px;
+    &.actived {
+      background-color: $Orange;
+    }
+  }
+
+  @extend %clearfix;
+}
+
+.main-content {
+  padding: 60px 0px;
+  height: calc(100% - 120px);
+  display: flex;
+  align-items: center;
+
+  .user-profile {
+    width: 100%;
+    text-align: center;
+    .user-picture {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: inline-block;
+    }
+    .user-name {
+      font-size: 32px;
+      font-weight: $font-weight-regular;
+      text-transform: capitalize;
+      color: black;
+    }
+    .user-age {
+      font-size: 14px;
+      color: $LightGrey;
+      font-weight: $font-weight-regular;
+      line-height: 2;
+    }
+  }
+}
+
+.footer {
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+
+  .btn {
+    width: 50%;
+    float: left;
+    font-size: 18px;
+    line-height: 60px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+
+    &.btn-no {
+      background-color: $DarkGrey;
+    }
+    &.btn-yes {
+      background-color: $Orange;
+    }
+  }
+
+  &.disabled {
+    .btn.btn-no, .btn.btn-yes {
+      color: $DarkGrey;
+      background-color: $LightGrey;
+    }
+  }
+  @extend %clearfix;
+}
+
+.loading {
+  width: 100%;
+  text-align: center;
+}
